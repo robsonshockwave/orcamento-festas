@@ -32,6 +32,54 @@ const partyController = {
       res.status(500).json({ error: 'Erro ao criar a festa.' });
     }
   },
+
+  getAll: async (req, res) => {
+    try {
+      const parties = await PartyModel.find();
+      res.status(200).json(parties);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Erro ao buscar as festas.' });
+    }
+  },
+
+  get: async (req, res) => {
+    try {
+      const id = req.params.id;
+
+      const party = await PartyModel.findById(id);
+
+      if (!party) {
+        return res.status(404).json({ error: 'Festa não encontrada.' });
+      }
+
+      res.status(200).json(party);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Erro ao buscar a festa.' });
+    }
+  },
+
+  delete: async (req, res) => {
+    try {
+      const id = req.params.id;
+
+      const party = await PartyModel.findById(id);
+
+      if (!party) {
+        return res.status(404).json({ error: 'Festa não encontrada.' });
+      }
+
+      const deletedParty = await PartyModel.findByIdAndDelete(id);
+
+      res
+        .status(200)
+        .json({ message: 'Festa excluida com sucesso!', deletedParty });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Erro ao excluir a festa.' });
+    }
+  },
 };
 
 module.exports = partyController;
