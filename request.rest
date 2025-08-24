@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/services
+Content-Type: application/json
+
+{
+    "name": "Festa de Aniversário",
+    "description": "Organização completa de festa de aniversário",
+    "price": 1500,
+    "image": "https://blog.sympla.com.br/wp-content/uploads/2021/07/organizar-uma-festa.jpg"
+}
