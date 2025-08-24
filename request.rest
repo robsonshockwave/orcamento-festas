@@ -27,3 +27,23 @@ Content-Type: application/json
     "price": 2500,
     "image": "https://blog.sympla.com.br/wp-content/uploads/2021/07/organizar-uma-festa.jpg"
 }
+
+###
+POST http://localhost:3000/api/parties
+Content-Type: application/json
+
+{
+    "title": "Festa de Aniversário 2",
+    "author": "Arruda Silva",
+    "description": "Uma festa incrível para comemorar meu aniversário só novamente.",
+    "budget": 9000,
+    "image": "https://blog.sympla.com.br/wp-content/uploads/2021/07/organizar-uma-festa.jpg",
+    "services": [
+        {
+            "name": "DJ para festa",
+            "description": "DJ profissional para animar sua festa com os melhores hits.",
+            "price": 2000,
+            "image": "https://blog.sympla.com.br/wp-content/uploads/2021/07/organizar-uma-festa.jpg"
+        }
+    ]
+}
