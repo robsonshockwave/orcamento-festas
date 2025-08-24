@@ -16,3 +16,14 @@ GET http://localhost:3000/api/services/68aa640407c843af95eabd54
 
 ###
 DELETE http://localhost:3000/api/services/68aa5e13700c2ddc59665e1c
+
+###
+PUT http://localhost:3000/api/services/68aa640407c843af95eabd54
+Content-Type: application/json
+
+{
+    "name": "DJ de eltrônica para festa",
+    "description": "DJ de eltrônica profissional para animar sua festa com os melhores hits dos anos 90.",
+    "price": 2500,
+    "image": "https://blog.sympla.com.br/wp-content/uploads/2021/07/organizar-uma-festa.jpg"
+}

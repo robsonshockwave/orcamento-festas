@@ -68,6 +68,32 @@ const serviceController = {
       res.status(500).json({ error: 'Erro ao excluir o serviço.' });
     }
   },
+
+  update: async (req, res) => {
+    try {
+      const id = req.params.id;
+
+      const service = {
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        image: req.body.image,
+      };
+
+      const updatedService = await ServiceModel.findByIdAndUpdate(id, service);
+
+      if (!updatedService) {
+        return res.status(404).json({ error: 'Serviço não encontrado.' });
+      }
+
+      res
+        .status(200)
+        .json({ message: 'Serviço atualizado com sucesso!', updatedService });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Erro ao atualizar o serviço.' });
+    }
+  },
 };
 
 module.exports = serviceController;
