@@ -56,3 +56,29 @@ GET http://localhost:3000/api/parties/68aa6a647ebab5804cb10cd4
 
 ###
 DELETE http://localhost:3000/api/parties/68aa6c4b7ebab5804cb10cd6
+
+###
+PUT http://localhost:3000/api/parties/68aa6a647ebab5804cb10cd4
+Content-Type: application/json
+
+{
+    "title": "Festa de Aniversário Editada",
+    "author": "Arruda Silva Editado",
+    "description": "Uma festa incrível para comemorar meu aniversário só novamente. Editado",
+    "budget": 10000,
+    "image": "https://blog.sympla.com.br/wp-content/uploads/2021/07/organizar-uma-festa.jpg",
+    "services": [
+        {
+            "name": "DJ para festa",
+            "description": "DJ profissional para animar sua festa com os melhores hits.",
+            "price": 2000,
+            "image": "https://blog.sympla.com.br/wp-content/uploads/2021/07/organizar-uma-festa.jpg"
+        },
+        {
+            "name": "Decoração de festa",
+            "description": "Decoração temática para deixar sua festa ainda mais especial.",
+            "price": 3000,
+            "image": "https://blog.sympla.com.br/wp-content/uploads/2021/07/organizar-uma-festa.jpg"
+        }
+    ]
+}

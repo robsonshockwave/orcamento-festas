@@ -80,6 +80,41 @@ const partyController = {
       res.status(500).json({ error: 'Erro ao excluir a festa.' });
     }
   },
+
+  update: async (req, res) => {
+    try {
+      const id = req.params.id;
+
+      const party = {
+        title: req.body.title,
+        author: req.body.author,
+        description: req.body.description,
+        budget: req.body.budget,
+        image: req.body.image,
+        services: req.body.services,
+      };
+
+      // BUDGET < VALOR DOS SERVIÇOS != NOVO SERVIÇO
+      if (party.services && !checkPartyBudget(party.budget, party.services)) {
+        return res.status(406).json({
+          error: 'O orçamento da festa é menor que o valor total dos serviços.',
+        });
+      }
+
+      const updatedParty = await PartyModel.findByIdAndUpdate(id, party);
+
+      if (!updatedParty) {
+        return res.status(404).json({ error: 'Festa não encontrada.' });
+      }
+
+      res
+        .status(200)
+        .json({ message: 'Festa atualizada com sucesso!', updatedParty });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Erro ao atualizar a festa.' });
+    }
+  },
 };
 
 module.exports = partyController;
