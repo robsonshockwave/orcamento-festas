@@ -2,8 +2,17 @@ POST http://localhost:3000/api/services
 Content-Type: application/json
 
 {
-    "name": "Festa de Aniversário",
-    "description": "Organização completa de festa de aniversário",
-    "price": 1500,
+    "name": "DJ para festa",
+    "description": "DJ profissional para animar sua festa com os melhores hits.",
+    "price": 2000,
     "image": "https://blog.sympla.com.br/wp-content/uploads/2021/07/organizar-uma-festa.jpg"
 }
+
+###
+GET http://localhost:3000/api/services
+
+###
+GET http://localhost:3000/api/services/68aa640407c843af95eabd54
+
+###
+DELETE http://localhost:3000/api/services/68aa5e13700c2ddc59665e1c
